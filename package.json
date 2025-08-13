@@ -1,0 +1,179 @@
+{
+  "name": "dar-include-navigator",
+  "displayName": "Dar PHP, JS, AJAX, and CSS Include Navigator",
+  "description": "Navigate to PHP includes, JS/TS imports, CSS stylesheets, and AJAX URLs with IntelliSense, hover previews, and smart completions.",
+  "version": "2.0.0",
+  "publisher": "DarshenDran",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DarshenDran/vscode-dar-include-navigator"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Extension Packs"
+  ],
+  "keywords": [
+    "php",
+    "javascript",
+    "typescript",
+    "css",
+    "scss",
+    "less",
+    "navigation",
+    "imports",
+    "includes",
+    "ajax",
+    "intellisense",
+    "productivity"
+  ],
+  "icon": "image/icon.png",
+  "galleryBanner": {
+    "color": "#2C3E50",
+    "theme": "dark"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:php",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact",
+    "onLanguage:html",
+    "onLanguage:vue",
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:less"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "darNavigator.navigateToInclude",
+        "title": "Include Navigator: Navigate to Include/Import"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Dar Include Navigator",
+      "properties": {
+        "darNavigator.enablePHP": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable PHP include/require navigation."
+        },
+        "darNavigator.enableJS": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable JS/TS import and AJAX navigation."
+        },
+        "darNavigator.enableCSS": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable CSS @import and <link> href navigation."
+        },
+        "darNavigator.enableHTML": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable HTML <script src> and <link href> navigation."
+        },
+        "darNavigator.enableAssetUrlsInCSS": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable navigation for url(...) assets in CSS."
+        },
+        "darNavigator.hover.preview": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a hover preview of target files or URL status."
+        },
+        "darNavigator.hover.maxLines": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "maximum": 200,
+          "description": "Maximum number of lines to show in hover preview for local files."
+        },
+        "darNavigator.url.validation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate remote URLs (HEAD request) when hovering."
+        },
+        "darNavigator.preferCssModules": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prefer .module.css when importing as a CSS module."
+        },
+        "darNavigator.fileExtensions.php": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".php",
+            ".inc",
+            ".phtml"
+          ],
+          "description": "Recognized PHP file extensions."
+        },
+        "darNavigator.fileExtensions.js": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".js",
+            ".ts",
+            ".jsx",
+            ".tsx",
+            ".mjs",
+            ".cjs"
+          ],
+          "description": "Recognized JS/TS file extensions."
+        },
+        "darNavigator.fileExtensions.css": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".css",
+            ".scss",
+            ".sass",
+            ".less"
+          ],
+          "description": "Recognized CSS file extensions."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --platform=node --external:vscode --format=cjs --sourcemap",
+    "watch": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --platform=node --external:vscode --format=cjs --sourcemap --watch",
+    "compile-tests": "tsc -p ./",
+    "pretest": "npm run build && npm run compile-tests",
+    "test": "node ./dist/test/runTest.js",
+    "package": "vsce package",
+    "lint": "eslint src --ext .ts",
+    "fix": "eslint src --ext .ts --fix"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^3.6.0",
+    "esbuild": "^0.25.8",
+    "eslint": "^8.57.0",
+    "glob": "^7.2.3",
+    "mocha": "^10.4.0",
+    "typescript": "^5.9.2"
+  }
+}

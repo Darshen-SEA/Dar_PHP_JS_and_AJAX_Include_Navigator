@@ -1,0 +1,8 @@
+**/*.ts
+**/*.map
+.vscode-test/**
+src/**
+.mocharc.json
+.eslintrc.json
+tsconfig.json
+**/test/**
