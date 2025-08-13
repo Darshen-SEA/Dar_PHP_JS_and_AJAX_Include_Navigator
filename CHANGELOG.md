@@ -14,7 +14,7 @@
 - Bugs in support for navigating to PHP require files
 
 ## [0.0.2] - 2024-09-04
-### Added
+### AddedL
 - Support for navigating to AJAX URLs in PHP and JavaScript files
 - Activation of the extension when editing JavaScript files
 

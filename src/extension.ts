@@ -4,7 +4,7 @@ import { IncludeHoverProvider } from './features/hoverProvider';
 import { IncludeCompletionProvider } from './features/completionProvider';
 import { extractPathAtPosition } from './common/resolver';
 import { DocumentHttpLinkProvider } from './features/documentLinkProvider';
-import { registerDiagnostics } from './features/diagnostics';
+// import { registerDiagnostics } from './features/diagnostics';
 
 const LANGS = [
   'php',
@@ -73,7 +73,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   // Diagnostics for unresolved includes/imports
-  registerDiagnostics(context);
+  // registerDiagnostics(context); // Disabled as per user request
 }
 
 export function deactivate() {}
