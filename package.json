@@ -2,7 +2,7 @@
   "name": "dar-include-navigator",
   "displayName": "Dar PHP, JS, AJAX, and CSS Include Navigator",
   "description": "Navigate to PHP includes, JS/TS imports, CSS stylesheets, and AJAX URLs with IntelliSense, hover previews, and smart completions.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "publisher": "DarshenDran",
   "license": "MIT",
   "repository": {
